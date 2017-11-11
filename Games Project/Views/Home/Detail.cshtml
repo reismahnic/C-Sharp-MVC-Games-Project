@@ -1,0 +1,17 @@
+﻿@model Games_Project.Models.VideoGame
+@{
+    var title = String.Format("Details about {0}, Developer: {1}", Model.GameTitle, Model.Developer);
+    ViewBag.Title = title;
+}
+
+<h2>@title</h2>
+<h4>Developer: @Model.Developer</h4>
+
+@{
+    var characters = Model.Characters.Select(p => p.Name).ToArray();
+    var charactersString = String.Join(", ", characters);
+    <p><strong>Characters: </strong> @charactersString</p>
+}
+
+<hr />
+@Html.ActionLink("Return to all video games", "Index");

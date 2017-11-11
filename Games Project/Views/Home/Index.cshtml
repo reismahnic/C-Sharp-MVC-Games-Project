@@ -1,0 +1,17 @@
+﻿@model List<Games_Project.Models.VideoGame>
+@{
+    ViewBag.Title = "My Video Games";
+}
+
+<h2>My Video Games</h2>
+
+@foreach (var videoGame in Model)
+{
+    <h3>@Html.ActionLink(videoGame.GameTitle, "Detail", new { id = videoGame.VideoGameID })</h3>
+    <h4>Release Year: @videoGame.ReleaseYear - @videoGame.Developer</h4>
+
+    var characters = videoGame.Characters.Select(p => p.Name).ToArray();
+    var charactersString = String.Join(", ", characters);
+    <p><strong>Characters: </strong> @charactersString</p>
+}
+
