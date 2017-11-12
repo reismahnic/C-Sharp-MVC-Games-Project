@@ -19,7 +19,7 @@ namespace Games_Project.Controllers
         {
             var videoGames = VideoGameManager.GetVideoGames();
             var videoGame = videoGames.FirstOrDefault(p => p.VideoGameID == id);
-            return View();
+            return View(videoGame);
         }
     }
 }
